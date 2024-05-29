@@ -1,15 +1,15 @@
 class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) {
-        int n=0;
-        for(int i=0;i<nums.size();i++){
-            for (int j=0;j<nums.size();j++){
-                if(nums[i]==nums[j]&&i<j){
-                    n=n+1;
-                }
-                // cout<<n;
+    int count = 0;
+    int n = nums.size();
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (nums[i] == nums[j]) {
+                ++count;
             }
         }
-        return n;
     }
+    return count;
+}
 };
