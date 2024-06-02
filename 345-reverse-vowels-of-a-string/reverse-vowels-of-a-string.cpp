@@ -1,7 +1,8 @@
 class Solution {
 public:
     std::string reverseVowels(std::string s) {
-        std::unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+        std::unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u',
+                                           'A', 'E', 'I', 'O', 'U'};
         int left = 0, right = s.size() - 1;
 
         while (left < right) {
