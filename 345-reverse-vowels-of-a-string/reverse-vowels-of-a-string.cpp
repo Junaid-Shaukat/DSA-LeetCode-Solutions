@@ -1,22 +1,26 @@
 class Solution {
 public:
-    string reverseVowels(string s) {
-        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    std::string reverseVowels(std::string s) {
+        std::unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
         int left = 0, right = s.size() - 1;
 
         while (left < right) {
-            if (vowels.find(s[left]) == vowels.end()) {
+            // Move left pointer to the next vowel
+            while (left < right && vowels.find(s[left]) == vowels.end()) {
                 left++;
-            } else if (vowels.find(s[right]) == vowels.end()) {
+            }
+            // Move right pointer to the previous vowel
+            while (left < right && vowels.find(s[right]) == vowels.end()) {
                 right--;
-            } else {
-                swap(s[left], s[right]);
+            }
+            // Swap the vowels
+            if (left < right) {
+                std::swap(s[left], s[right]);
                 left++;
                 right--;
             }
         }
 
         return s;
-        }
-    
+    }
 };
