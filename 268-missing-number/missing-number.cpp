@@ -1,13 +1,9 @@
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
-        unordered_set<int> numSet(nums.begin(), nums.end());
+    int missingNumber(std::vector<int>& nums) {
         int n = nums.size();
-        for (int i = 0; i <= n; ++i) {
-            if (numSet.find(i) == numSet.end()) {
-                return i;
-            }
-        }
-        return -1; 
+        int sum_n = n * (n + 1) / 2;
+        int array_sum = std::accumulate(nums.begin(), nums.end(), 0);
+        return sum_n - array_sum;
     }
 };
